@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Redirection selon la taille de l'écran
     function checkScreenSize() {
       const isResponsivePage = window.location.pathname.includes("index-responsive.html");
   
@@ -13,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("load", checkScreenSize);
     window.addEventListener("resize", checkScreenSize);
   
-    // Contrôle de la visibilité du menu bas
     const bottomNav = document.getElementById("bottomNav");
     const footer = document.getElementById("footer");
   
@@ -32,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
       window.addEventListener("load", checkMenuVisibility);
     }
   
-    // Gestion du changement de thème
     const themeToggleButton = document.getElementById("theme-toggle");
     const userIcon = document.querySelector(".icon[alt='User Icon']");
     const languageIcon = document.querySelector(".icon[alt='Language Icon']");
@@ -41,12 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
       const isDark = theme === "dark";
       document.body.classList.toggle("dark-theme", isDark);
 
-      // Applique dark-theme à tous les éléments nécessitant un changement de style
+
       document.querySelectorAll("header, .nav-section, .search-section, .categories-section, .logement-section, footer, .input-field, .nav-tab, .input-label, .logement-rating, .show-more-btn, .footer-links a, .footer-icons span, a").forEach(element => {
         element.classList.toggle("dark-theme", isDark);
       });
 
-      // Change les icônes pour le thème sombre
       if (isDark) {
         userIcon.src = "img/user-white.png";
         languageIcon.src = "img/world-white.png";
@@ -65,6 +61,5 @@ document.addEventListener("DOMContentLoaded", function () {
   
     themeToggleButton.addEventListener("click", toggleTheme);
   
-    // Applique le thème clair par défaut au chargement de la page
     applyTheme("light");
 });
